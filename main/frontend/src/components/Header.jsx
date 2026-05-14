@@ -21,7 +21,7 @@ const Header = () => {
         {/* Nav */}
         <nav className="flex items-center gap-4">
           <a
-            href="https://github.com"
+            href="https://github.com/tspgithub0011/healthcareDeep_Learning"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-200 transition-colors"
