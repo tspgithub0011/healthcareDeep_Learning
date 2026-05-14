@@ -56,12 +56,8 @@ app = FastAPI(
 # ── CORS Middleware ──
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        settings.FRONTEND_URL,        # Configured production URL (or localhost in dev)
-        "http://localhost:5173",       # Vite dev server fallback
-    ],
-    allow_origin_regex=r"https://.*\.vercel\.app",  # All Vercel preview deployments
-    allow_credentials=True,
+    allow_origins=["*"],             # Allow all origins — public API, no auth cookies
+    allow_credentials=False,         # Must be False when using wildcard origins
     allow_methods=["*"],
     allow_headers=["*"],
 )

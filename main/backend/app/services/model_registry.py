@@ -8,6 +8,7 @@ Instead of loading all 7 models at startup (~500+ MB RAM), this registry:
 
 This keeps RAM usage under ~350 MB, fitting within Render's 512 MB free tier.
 """
+import gc
 import os
 from collections import OrderedDict
 
@@ -20,7 +21,7 @@ from app.utils.logger import logger
 
 # Maximum number of models to keep in memory simultaneously.
 # image_classifier (always loaded) + 1 disease model = 2 total.
-MAX_CACHED = 2
+MAX_CACHED = 3
 
 
 class ModelRegistry:
@@ -91,7 +92,7 @@ class ModelRegistry:
             logger.info(f"  ♻ Evicting {oldest_name} from memory to make room")
             del self._models[oldest_name]
             del oldest_model
-            torch.cuda.empty_cache() if self._device.type == "cuda" else None
+            gc.collect()  # Force garbage collection to reclaim memory immediately
 
         # Build and load
         try:
@@ -101,18 +102,14 @@ class ModelRegistry:
             if os.path.exists(pth_path):
                 state_dict = torch.load(pth_path, map_location=self._device, weights_only=True)
                 model.load_state_dict(state_dict)
+                del state_dict  # Free the duplicate copy immediately
+                gc.collect()
                 logger.info(f"  ✓ {model_name}: loaded trained weights from {pth_path}")
             else:
                 logger.info(f"  ✓ {model_name}: using random weights (dummy mode)")
 
             model.to(self._device)
             model.eval()
-
-            # Warm up with a dummy inference
-            with torch.no_grad():
-                dummy = torch.randn(1, 3, 224, 224).to(self._device)
-                model(dummy)
-                del dummy
 
             self._models[model_name] = model
             return model
