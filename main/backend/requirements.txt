@@ -1,0 +1,13 @@
+# Healthcare DL Backend — Production Dependencies
+# Note: PyTorch CPU is installed separately in the Dockerfile
+# For local development with GPU, use: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9
+pillow==10.3.0
+numpy==1.26.4
+pydantic==2.7.1
+python-dotenv==1.0.1
+reportlab==4.2.0
+huggingface_hub>=0.23.0

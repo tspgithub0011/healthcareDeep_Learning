@@ -1,0 +1,25 @@
+# Ignore everything not needed in the Docker build context
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+.git/
+.gitignore
+
+# Test files
+test_*.py
+tests/
+verify_gpu.py
+
+# Model weights (downloaded at startup from HuggingFace)
+trained_models/*.pth
+trained_models/*.pt
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

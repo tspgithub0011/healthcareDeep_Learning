@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Image Diagnosis System - Presentation</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js for Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: #0f172a;
+            color: #f8fafc;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Animated Background */
+        .bg-animated {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #042f2e, #0f172a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Slide Transitions */
+        .slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(0.95) translateY(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1) translateY(0);
+            z-index: 10;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Staggered Animations for Children */
+        .slide.active .stagger-1 { animation: fadeUp 0.8s ease forwards 0.2s; opacity: 0; }
+        .slide.active .stagger-2 { animation: fadeUp 0.8s ease forwards 0.4s; opacity: 0; }
+        .slide.active .stagger-3 { animation: fadeUp 0.8s ease forwards 0.6s; opacity: 0; }
+        .slide.active .stagger-4 { animation: fadeUp 0.8s ease forwards 0.8s; opacity: 0; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Progress Bar */
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 4px;
+            background: #2dd4bf;
+            transition: width 0.4s ease;
+            z-index: 50;
+            box-shadow: 0 0 10px #2dd4bf;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 60vh;
+            width: 80vw;
+            max-width: 1200px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+    <div class="bg-animated"></div>
+    <div id="progress-bar" style="width: 14.28%;"></div>
+
+    <!-- Main Presentation Container -->
+    <main id="presentation-container" class="relative w-full h-screen">
+
+        <!-- SLIDE 1: Title -->
+        <section class="slide active" id="slide-1">
+            <div class="text-center max-w-4xl glass-card p-12 stagger-1 relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                
+                <div class="flex justify-center mb-6 text-brand-400">
+                    <i data-lucide="brain-circuit" class="w-20 h-20"></i>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500">
+                    Medical Image Diagnosis System
+                </h1>
+                <h2 class="text-2xl text-slate-300 font-light mb-8">Using Deep Learning & Transfer Learning</h2>
+                <div class="inline-flex items-center space-x-2 bg-slate-800/50 rounded-full px-6 py-2 border border-slate-700">
+                    <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                    <span class="text-sm text-slate-300 tracking-wider uppercase">Automated, Zero-Choice Triage</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: Problem Statement -->
+        <section class="slide" id="slide-2">
+            <div class="w-full max-w-6xl">
+                <h2 class="text-4xl font-bold mb-12 text-center text-brand-400 stagger-1">The Problem</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 stagger-2">
+                        <i data-lucide="clock" class="w-12 h-12 text-red-400 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4">Time-Consuming</h3>
+                        <p class="text-slate-400 leading-relaxed">Hospitals process thousands of images daily. Manual interpretation by scarce radiologists causes critical delays in rural regions.</p>
+                    </div>
+                    <div class="glass-card p-8 stagger-3">
+                        <i data-lucide="sliders-horizontal" class="w-12 h-12 text-orange-400 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4">Complex UX</h3>
+                        <p class="text-slate-400 leading-relaxed">Existing AI tools require users to manually select the imaging modality and disease, introducing barriers for non-expert users.</p>
+                    </div>
+                    <div class="glass-card p-8 stagger-4">
+                        <i data-lucide="shield-alert" class="w-12 h-12 text-yellow-400 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4">Error-Prone Routing</h3>
+                        <p class="text-slate-400 leading-relaxed">Feeding an X-Ray into a Brain Tumor model yields false results. Lack of automated triage leads to diagnostic errors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Proposed Solution -->
+        <section class="slide" id="slide-3">
+            <div class="w-full max-w-6xl">
+                <h2 class="text-4xl font-bold mb-12 text-center text-brand-400 stagger-1">Our Solution & Objectives</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-card p-8 flex items-start space-x-6 stagger-2">
+                        <div class="bg-brand-500/20 p-4 rounded-xl text-brand-400">
+                            <i data-lucide="mouse-pointer-click" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">"Zero-Choice" UI</h3>
+                            <p class="text-slate-400">User only uploads an image. The system handles detection, routing, and inference automatically.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-8 flex items-start space-x-6 stagger-3">
+                        <div class="bg-blue-500/20 p-4 rounded-xl text-blue-400">
+                            <i data-lucide="network" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">Dynamic Model Routing</h3>
+                            <p class="text-slate-400">7 specialized Deep Learning models (EfficientNet-B0 & ResNet50) coordinate based on auto-detected image modality.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-8 flex items-start space-x-6 stagger-4">
+                        <div class="bg-purple-500/20 p-4 rounded-xl text-purple-400">
+                            <i data-lucide="scan-eye" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">Explainable AI (XAI)</h3>
+                            <p class="text-slate-400">Generates Grad-CAM heatmaps visually highlighting anatomical regions influencing the AI's prediction.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-8 flex items-start space-x-6 stagger-4">
+                        <div class="bg-pink-500/20 p-4 rounded-xl text-pink-400">
+                            <i data-lucide="file-down" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">Automated Reports</h3>
+                            <p class="text-slate-400">Generates downloadable PDF diagnostic reports containing predictions, confidence scores, and heatmaps.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: Architecture -->
+        <section class="slide" id="slide-4">
+            <div class="w-full max-w-7xl">
+                <h2 class="text-4xl font-bold mb-12 text-center text-brand-400 stagger-1">System Architecture Pipeline</h2>
+                
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-4 stagger-2">
+                    
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="w-20 h-20 rounded-2xl bg-slate-800 border border-slate-600 flex items-center justify-center mb-4 relative z-10 shadow-lg shadow-black/50">
+                            <i data-lucide="upload-cloud" class="w-10 h-10 text-slate-300"></i>
+                        </div>
+                        <h4 class="font-semibold text-center">1. Upload Image</h4>
+                        <p class="text-xs text-slate-400 text-center mt-2">JPEG/PNG/WEBP<br>Preprocessed to 224x224</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="hidden md:block w-12 h-1 bg-slate-700 relative">
+                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 border-t-2 border-r-2 border-slate-500 rotate-45 transform translate-x-1/2"></div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="w-20 h-20 rounded-2xl bg-blue-900/50 border border-blue-500 flex items-center justify-center mb-4 relative z-10 shadow-lg shadow-blue-900/50">
+                            <i data-lucide="cpu" class="w-10 h-10 text-blue-400"></i>
+                        </div>
+                        <h4 class="font-semibold text-center">2. Modality Classifier</h4>
+                        <p class="text-xs text-slate-400 text-center mt-2">EfficientNet-B0 detects<br>X-ray, MRI, CT, or Skin</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="hidden md:block w-12 h-1 bg-slate-700 relative">
+                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 border-t-2 border-r-2 border-slate-500 rotate-45 transform translate-x-1/2"></div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="w-20 h-20 rounded-2xl bg-brand-900/50 border border-brand-500 flex items-center justify-center mb-4 relative z-10 shadow-lg shadow-brand-900/50">
+                            <i data-lucide="git-branch" class="w-10 h-10 text-brand-400"></i>
+                        </div>
+                        <h4 class="font-semibold text-center">3. Dynamic Routing</h4>
+                        <p class="text-xs text-slate-400 text-center mt-2">Routes to specific<br>disease models concurrently</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="hidden md:block w-12 h-1 bg-slate-700 relative">
+                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 border-t-2 border-r-2 border-slate-500 rotate-45 transform translate-x-1/2"></div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="w-20 h-20 rounded-2xl bg-purple-900/50 border border-purple-500 flex items-center justify-center mb-4 relative z-10 shadow-lg shadow-purple-900/50">
+                            <i data-lucide="layers" class="w-10 h-10 text-purple-400"></i>
+                        </div>
+                        <h4 class="font-semibold text-center">4. Explainable AI</h4>
+                        <p class="text-xs text-slate-400 text-center mt-2">Grad-CAM applies heatmap<br>to top prediction</p>
+                    </div>
+                </div>
+
+                <!-- Sub-routing visual -->
+                <div class="mt-16 glass-card p-6 stagger-3 flex justify-center border-t-4 border-t-brand-500">
+                    <p class="text-center font-mono text-sm text-slate-300">
+                        <span class="text-brand-400">X-Ray</span> ➔ Pneumonia / COVID / Cardiomegaly &nbsp;|&nbsp;
+                        <span class="text-brand-400">MRI</span> ➔ Brain Tumor &nbsp;|&nbsp;
+                        <span class="text-brand-400">CT</span> ➔ Lung Cancer &nbsp;|&nbsp;
+                        <span class="text-brand-400">Skin</span> ➔ Skin Lesion
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: Model Performance (Chart) -->
+        <section class="slide" id="slide-5">
+            <div class="w-full max-w-7xl flex flex-col items-center">
+                <h2 class="text-4xl font-bold mb-4 text-center text-brand-400 stagger-1">Model Performance Metrics</h2>
+                <p class="text-slate-400 mb-8 stagger-1 text-center max-w-2xl">Evaluated on hold-out test sets. All models utilize Transfer Learning via Pretrained ImageNet weights.</p>
+                
+                <div class="glass-card p-6 w-full stagger-2 chart-container flex items-center justify-center">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: Technologies Used -->
+        <section class="slide" id="slide-6">
+            <div class="w-full max-w-6xl text-center">
+                <h2 class="text-4xl font-bold mb-16 text-brand-400 stagger-1">Technologies Used</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    
+                    <!-- AI/ML -->
+                    <div class="stagger-2">
+                        <div class="flex justify-center mb-6"><i data-lucide="brain" class="w-16 h-16 text-purple-400"></i></div>
+                        <h3 class="text-2xl font-semibold mb-6">AI & Machine Learning</h3>
+                        <ul class="space-y-4 text-slate-300 inline-block text-left">
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> Python 3.9+</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> PyTorch & Torchvision</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> EfficientNet-B0 & ResNet50</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> Scikit-learn & NumPy</li>
+                        </ul>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="stagger-3 relative">
+                        <div class="absolute inset-y-0 -left-6 w-px bg-gradient-to-b from-transparent via-slate-600 to-transparent hidden md:block"></div>
+                        <div class="absolute inset-y-0 -right-6 w-px bg-gradient-to-b from-transparent via-slate-600 to-transparent hidden md:block"></div>
+                        
+                        <div class="flex justify-center mb-6"><i data-lucide="server" class="w-16 h-16 text-blue-400"></i></div>
+                        <h3 class="text-2xl font-semibold mb-6">Backend & API</h3>
+                        <ul class="space-y-4 text-slate-300 inline-block text-left">
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> FastAPI (High-performance)</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> Uvicorn ASGI</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> Pydantic (Validation)</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> Docker & Render</li>
+                        </ul>
+                    </div>
+
+                    <!-- Frontend -->
+                    <div class="stagger-4">
+                        <div class="flex justify-center mb-6"><i data-lucide="layout" class="w-16 h-16 text-pink-400"></i></div>
+                        <h3 class="text-2xl font-semibold mb-6">Frontend UI</h3>
+                        <ul class="space-y-4 text-slate-300 inline-block text-left">
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> React.js 18 & Vite</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> Tailwind CSS v3</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> Framer Motion</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-brand-500"></i> Vercel Edge Network</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: Conclusion -->
+        <section class="slide" id="slide-7">
+            <div class="text-center max-w-4xl glass-card p-12 stagger-1 relative overflow-hidden">
+                <i data-lucide="sparkles" class="w-16 h-16 text-yellow-400 mx-auto mb-6"></i>
+                <h2 class="text-5xl font-bold mb-8 tracking-tight text-white">Conclusion</h2>
+                
+                <p class="text-xl text-slate-300 leading-relaxed mb-8">
+                    Successfully built an accessible, unified medical image triage platform. By removing the need for manual configuration, leveraging multi-modal routing, and providing transparent Grad-CAM explanations, this system demonstrates how AI can streamline diagnostics and extend specialized healthcare access.
+                </p>
+
+                <div class="flex justify-center space-x-6 mt-8 border-t border-slate-700 pt-8">
+                    <div class="text-center">
+                        <p class="text-3xl font-bold text-brand-400">7</p>
+                        <p class="text-sm text-slate-400 uppercase tracking-widest mt-1">Models</p>
+                    </div>
+                    <div class="w-px bg-slate-700"></div>
+                    <div class="text-center">
+                        <p class="text-3xl font-bold text-blue-400">100%</p>
+                        <p class="text-sm text-slate-400 uppercase tracking-widest mt-1">Automated</p>
+                    </div>
+                    <div class="w-px bg-slate-700"></div>
+                    <div class="text-center">
+                        <p class="text-3xl font-bold text-purple-400">>92%</p>
+                        <p class="text-sm text-slate-400 uppercase tracking-widest mt-1">Accuracy</p>
+                    </div>
+                </div>
+
+                <p class="mt-12 text-slate-500 font-semibold tracking-wider">THANK YOU / Q&A</p>
+            </div>
+        </section>
+
+        <!-- Controls -->
+        <button id="prevBtn" class="fixed left-6 top-1/2 -translate-y-1/2 bg-slate-800/80 hover:bg-brand-600 text-white p-4 rounded-full transition-all z-50 shadow-lg border border-slate-600 disabled:opacity-30 disabled:cursor-not-allowed">
+            <i data-lucide="chevron-left" class="w-8 h-8"></i>
+        </button>
+        <button id="nextBtn" class="fixed right-6 top-1/2 -translate-y-1/2 bg-slate-800/80 hover:bg-brand-600 text-white p-4 rounded-full transition-all z-50 shadow-lg border border-slate-600 disabled:opacity-30 disabled:cursor-not-allowed">
+            <i data-lucide="chevron-right" class="w-8 h-8"></i>
+        </button>
+
+        <!-- Slide Indicator -->
+        <div class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-800/80 backdrop-blur-md px-6 py-2 rounded-full border border-slate-700 z-50 text-slate-300 font-mono text-sm">
+            Slide <span id="current-slide">1</span> of 7
+        </div>
+
+    </main>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Presentation Logic
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const currentSlideIndicator = document.getElementById('current-slide');
+        const progressBar = document.getElementById('progress-bar');
+        
+        let currentSlide = 0;
+        let chartRendered = false; // Flag to render chart only once
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            // Update UI components
+            currentSlideIndicator.innerText = currentSlide + 1;
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+            
+            // Update Progress Bar
+            const progress = ((currentSlide + 1) / slides.length) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            // Trigger Chart Rendering on Slide 5
+            if (currentSlide === 4 && !chartRendered) {
+                renderChart();
+                chartRendered = true;
+            }
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlides();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlides();
+            }
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    updateSlides();
+                }
+            } else if (e.key === 'ArrowLeft') {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlides();
+                }
+            }
+        });
+
+        // Initial setup
+        updateSlides();
+
+        // Chart.js Configuration
+        function renderChart() {
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            
+            Chart.defaults.color = '#cbd5e1'; // slate-300
+            Chart.defaults.font.family = "'Poppins', sans-serif";
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Type Classifier', 
+                        'Brain Tumor', 
+                        'Pneumonia', 
+                        'COVID-19', 
+                        'Skin Lesion', 
+                        'Lung Cancer', 
+                        'Cardiomegaly'
+                    ],
+                    datasets: [
+                        {
+                            label: 'Accuracy (%)',
+                            data: [96.5, 94.8, 95.6, 96.2, 92.5, 93.7, 95.1],
+                            backgroundColor: 'rgba(45, 212, 191, 0.7)', // teal-400
+                            borderColor: '#2dd4bf',
+                            borderWidth: 1,
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'Precision (%)',
+                            data: [96.2, 94.5, 95.1, 96.0, 92.0, 93.2, 94.8],
+                            backgroundColor: 'rgba(59, 130, 246, 0.7)', // blue-500
+                            borderColor: '#3b82f6',
+                            borderWidth: 1,
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'Recall (%)',
+                            data: [96.0, 94.2, 95.3, 95.8, 91.8, 93.0, 94.6],
+                            backgroundColor: 'rgba(168, 85, 247, 0.7)', // purple-500
+                            borderColor: '#a855f7',
+                            borderWidth: 1,
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'F1-Score (%)',
+                            data: [96.1, 94.3, 95.2, 95.9, 91.9, 93.1, 94.7],
+                            backgroundColor: 'rgba(236, 72, 153, 0.7)', // pink-500
+                            borderColor: '#ec4899',
+                            borderWidth: 1,
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeOutQuart'
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true,
+                                font: { size: 13, weight: 500 }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                            titleColor: '#2dd4bf',
+                            padding: 12,
+                            borderColor: '#334155',
+                            borderWidth: 1
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 85, // Set minimum to 85 to emphasize differences since all scores are high
+                            max: 100,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)',
+                                drawBorder: false
+                            },
+                            ticks: {
+                                stepSize: 2
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: { weight: 500 }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

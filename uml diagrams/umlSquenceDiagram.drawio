@@ -1,0 +1,191 @@
+<mxfile host="65bd71144e">
+    <diagram id="v6gzgJB-_HsRDRedOCNF" name="Sequence Diagram">
+        <mxGraphModel dx="2778" dy="1598" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="6" value="User" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;size=40;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="40" width="100" height="960" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Frontend&#xa;(React)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;size=40;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="40" width="100" height="960" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="7">
+                    <mxGeometry x="45" y="60" width="10" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="7">
+                    <mxGeometry x="45" y="140" width="10" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Validator" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#D5E8D4;strokeColor=#82B366;fontStyle=1;size=40;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="40" width="100" height="960" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#D5E8D4;strokeColor=#82B366;" vertex="1" parent="10">
+                    <mxGeometry x="45" y="160" width="10" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Image&#xa;Classifier" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#D5E8D4;strokeColor=#82B366;fontStyle=1;size=40;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="40" width="100" height="960" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#D5E8D4;strokeColor=#82B366;" vertex="1" parent="12">
+                    <mxGeometry x="45" y="320" width="10" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Model&#xa;Router" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#D5E8D4;strokeColor=#82B366;fontStyle=1;size=40;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="40" width="100" height="960" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#D5E8D4;strokeColor=#82B366;" vertex="1" parent="14">
+                    <mxGeometry x="45" y="420" width="10" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Predictor&#xa;(Parallel)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#D5E8D4;strokeColor=#82B366;fontStyle=1;size=40;" vertex="1" parent="1">
+                    <mxGeometry x="860" y="40" width="100" height="960" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#D5E8D4;strokeColor=#82B366;" vertex="1" parent="16">
+                    <mxGeometry x="45" y="520" width="10" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Grad-CAM" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#E1D5E7;strokeColor=#9673A6;fontStyle=1;size=40;" vertex="1" parent="1">
+                    <mxGeometry x="1020" y="40" width="100" height="960" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#E1D5E7;strokeColor=#9673A6;" vertex="1" parent="18">
+                    <mxGeometry x="45" y="640" width="10" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Response&#xa;Builder" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#FFE6CC;strokeColor=#D79B00;fontStyle=1;size=40;" vertex="1" parent="1">
+                    <mxGeometry x="1180" y="40" width="100" height="960" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#FFE6CC;strokeColor=#D79B00;" vertex="1" parent="20">
+                    <mxGeometry x="45" y="780" width="10" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Uploads Image (Drag &amp; Drop)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1" source="6" target="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="110" y="110" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="180" y="110"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="Client-side validation" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;" edge="1" parent="1" source="8" target="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="290" y="120" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="300" y="120"/>
+                            <mxPoint x="300" y="140"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="POST /api/predict (multipart/form-data)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1" source="9" target="11">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="280" y="210" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="350" y="210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="Validate (type, size &lt;= 10MB, &gt;= 32x32)" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;" edge="1" parent="1" source="11" target="11">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="440" y="230" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="460" y="230"/>
+                            <mxPoint x="460" y="250"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="[If Invalid] HTTP 422 / 413" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1" source="11" target="9">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="420" y="280" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="350" y="280"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="Show Error Message" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1" source="9" target="6">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="270" y="290" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="180" y="290"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="[If Valid] Send Tensor" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1" source="11" target="13">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="440" y="370" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="510" y="370"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="Predict Type (e.g. X-ray, conf: 0.92)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1" source="13" target="15">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="590" y="470" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="670" y="470"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="Select Models (pneumonia, covid, cardiomegaly)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1" source="15" target="17">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="760" y="570" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="830" y="570"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" value="Run Models in Parallel &amp; Aggregate" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;" edge="1" parent="1" source="17" target="17">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="920" y="590" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="940" y="590"/>
+                            <mxPoint x="940" y="620"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="32" value="Send highest confidence result" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1" source="17" target="19">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="920" y="690" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="980" y="690"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="33" value="Gen Heatmap (last conv layer) &amp; Overlay" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;" edge="1" parent="1" source="19" target="19">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1080" y="710" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="1100" y="710"/>
+                            <mxPoint x="1100" y="740"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="34" value="Encode Heatmap (Base64 PNG)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1" source="19" target="21">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1080" y="830" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="1140" y="830"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="35" value="Build JSON Response" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;" edge="1" parent="1" source="21" target="21">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1240" y="850" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="1260" y="850"/>
+                            <mxPoint x="1260" y="870"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="Return HTTP 200 (JSON)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1" source="21" target="9">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1180" y="890" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="740" y="890"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="37" value="Renders Results Dashboard" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1" source="9" target="6">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="270" y="910" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="180" y="910"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

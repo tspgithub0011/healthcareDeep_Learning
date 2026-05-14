@@ -1,0 +1,67 @@
+<mxfile host="65bd71144e">
+    <diagram id="erWkV4d5V0e4UALP_1L8" name="Use Case Diagram">
+        <mxGraphModel dx="1250" dy="719" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Medical Image Diagnosis System" style="swimlane;whiteSpace=wrap;html=1;startSize=40;fillColor=#f9f9f9;strokeColor=#b0b0b0;fontStyle=1;fontSize=16;align=center;verticalAlign=top;shadow=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="80" width="400" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Upload Medical Image" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="2">
+                    <mxGeometry x="100" y="80" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="View Automated Diagnosis" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="2">
+                    <mxGeometry x="100" y="180" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="View Medical Disclaimer" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="2">
+                    <mxGeometry x="100" y="280" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Inspect Grad-CAM Heatmap" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="2">
+                    <mxGeometry x="100" y="380" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Download PDF Report" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="2">
+                    <mxGeometry x="100" y="480" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Start New Analysis" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="2">
+                    <mxGeometry x="100" y="580" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Update / Retrain DL Models" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="2">
+                    <mxGeometry x="100" y="660" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Monitor Server Health" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="2">
+                    <mxGeometry x="100" y="760" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;dashed=1;html=1;endSize=8;strokeWidth=2;strokeColor=#666666;fontStyle=0;fontSize=11;" edge="1" parent="2" source="3" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;dashed=1;html=1;endSize=8;strokeWidth=2;strokeColor=#666666;fontStyle=0;fontSize=11;" edge="1" parent="2" source="4" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="End User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="280" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="System Administrator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="900" y="580" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="13" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="13" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="13" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="13" target="8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="14" target="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="14" target="10">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

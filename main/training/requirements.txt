@@ -1,0 +1,8 @@
+# Training dependencies (install in backend venv)
+# These are ADDITIONAL packages needed for training.
+# PyTorch, torchvision, numpy, pillow are already installed.
+
+scikit-learn==1.5.0
+matplotlib==3.9.0
+seaborn==0.13.0
+tqdm==4.66.0

@@ -1,0 +1,84 @@
+<mxfile host="65bd71144e">
+    <diagram id="xfYVfkLfeN-qn1sMkRBq" name="DFD Level 0">
+        <mxGraphModel dx="1250" dy="348" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="User" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=14;shadow=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="360" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="0.0&#xa;Medical Image&#xa;Diagnosis System" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D5E8D4;strokeColor=#82B366;fontStyle=1;fontSize=14;shadow=1;spacing=10;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="310" width="180" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="1.0&#xa;Model Training&#xa;Pipeline" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D5E8D4;strokeColor=#82B366;fontStyle=1;fontSize=14;shadow=1;spacing=10;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="310" width="180" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Training Datasets" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=#FFE6CC;strokeColor=#D79B00;fontStyle=1;fontSize=14;shadow=1;align=center;verticalAlign=middle;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="600" width="180" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#D79B00;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1000" y="660" as="sourcePoint"/>
+                        <mxPoint x="1000" y="600" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="Raw Medical Image" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle;curved=1;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="320" y="380" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="420" y="360"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="Raw Medical Image" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];backgroundColor=#ffffff;fontStyle=1;" parent="7" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="Predictions + Heatmap + Disclaimer" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle;curved=1;" parent="1" source="3" target="2" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="500" y="440" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="420" y="420"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="Predictions + Heatmap + Disclaimer" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];backgroundColor=#ffffff;fontStyle=1;" parent="9" vertex="1" connectable="0">
+                    <mxGeometry x="0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="PDF Report" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle;curved=1;" parent="1" source="3" target="2" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="500" y="480" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="420" y="460"/>
+                            <mxPoint x="420" y="430"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="PDF Report" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];backgroundColor=#ffffff;fontStyle=1;" parent="11" vertex="1" connectable="0">
+                    <mxGeometry x="-0.4" y="20" relative="1" as="geometry">
+                        <mxPoint x="-10" y="-10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="Labelled Images" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#000000;" parent="1" source="5" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Labelled Images" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];backgroundColor=#ffffff;fontStyle=1;" parent="13" vertex="1" connectable="0">
+                    <mxGeometry x="0.2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="Trained .pth Weight Files" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#000000;" parent="1" source="4" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Trained .pth Weight Files" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];backgroundColor=#ffffff;fontStyle=1;" parent="15" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

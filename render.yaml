@@ -1,0 +1,26 @@
+# Render Blueprint — One-click deploy configuration
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: healthcare-dl-api
+    runtime: docker
+    dockerfilePath: ./main/backend/Dockerfile
+    dockerContext: ./main/backend
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: FRONTEND_URL
+        sync: false  # Set manually after Vercel deploys
+      - key: USE_GPU
+        value: "false"
+      - key: MODEL_DIR
+        value: ./trained_models
+      - key: HF_REPO_ID
+        sync: false  # Set to your HuggingFace repo ID
+      - key: LOG_LEVEL
+        value: info
