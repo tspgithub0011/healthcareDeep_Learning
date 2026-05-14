@@ -3,7 +3,7 @@ import { API_URL } from '../constants';
 
 const api = axios.create({
   baseURL: API_URL,
-  timeout: 60000, // 60s — model inference can be slow
+  timeout: 180000, // 180s — Render free tier cold start + model loading can be slow
 });
 
 /**
