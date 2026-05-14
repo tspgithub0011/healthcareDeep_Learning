@@ -32,6 +32,27 @@ const Footer = () => {
             by any regulatory body and must not be used for actual medical diagnosis.
           </p>
         </div>
+
+        {/* Divider */}
+        <div className="w-16 h-px bg-slate-800 my-1" />
+
+        {/* Credits */}
+        <div className="flex flex-col items-center gap-1.5">
+          <p className="text-sm text-slate-400">
+            Developed by <span className="text-slate-200 font-semibold">Tanmay Patil</span>
+          </p>
+          <a
+            href="mailto:githubtsp0011@gmail.com"
+            className="text-xs text-primary/70 hover:text-primary transition-colors"
+          >
+            githubtsp0011@gmail.com
+          </a>
+        </div>
+
+        {/* Copyright */}
+        <p className="text-[11px] text-slate-600">
+          © {new Date().getFullYear()} Tanmay Patil. All rights reserved.
+        </p>
       </div>
     </footer>
   );
