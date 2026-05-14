@@ -62,22 +62,23 @@ const UploadZone = ({ onFileSelect, disabled = false }) => {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="w-full"
     >
-      <div
-        role="button"
-        tabIndex={0}
-        aria-label="Upload medical image — drag and drop or click to browse"
+      {/* Using <label> instead of programmatic click() — much more reliable on mobile.
+          Mobile Safari and some Android browsers block synthetic .click() on file inputs. */}
+      <label
+        htmlFor="upload-input"
+        aria-label="Upload medical image — drag and drop or tap to browse"
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
-        onClick={handleClick}
         onKeyDown={handleKeyDown}
+        tabIndex={0}
         className={`
-          relative cursor-pointer rounded-card border-2 border-dashed
+          relative block cursor-pointer rounded-card border-2 border-dashed
           transition-all duration-300 ease-out
           flex flex-col items-center justify-center
           p-10 sm:p-14 text-center
           focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-slate-900
-          ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
+          ${disabled ? 'opacity-50 pointer-events-none' : ''}
           ${isDragging
             ? 'border-primary bg-primary/5 shadow-[0_0_40px_rgba(14,165,233,0.1)]'
             : 'border-slate-700/60 bg-surface/30 hover:border-slate-600 hover:bg-surface/50'
@@ -114,16 +115,17 @@ const UploadZone = ({ onFileSelect, disabled = false }) => {
           Browse Files
         </span>
 
-        {/* Hidden input */}
+        {/* File input — visible to the OS file picker via the <label> htmlFor link */}
         <input
           ref={inputRef}
+          id="upload-input"
           type="file"
-          className="hidden"
-          accept={ALLOWED_FILE_TYPES.join(',')}
+          className="sr-only"
+          accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"
           onChange={handleInputChange}
           disabled={disabled}
         />
-      </div>
+      </label>
     </motion.div>
   );
 };
