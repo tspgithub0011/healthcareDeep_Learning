@@ -71,8 +71,8 @@ The system employs a multi-tier architecture. First, an **Image Type Classifier*
 
 ## 💻 Getting Started (Local Development)
 
-## NOTE : These commands will perfectly work if you have python 3.9.x to 3.11.x and Node.js version less than 23 LTS.....
-If you have python 3.12.x + and node.js 23+ then run the commands given in "CommandsToRun.md" file....
+## NOTE : These commands given below will perfectly work if you have python 3.9.x to 3.11.x
+If you have python 3.12.x + then run the commands given in "CommandsToRun.md" file, and you can install all setup this without getting error...
 
 ### Prerequisites
 - Python 3.9+
