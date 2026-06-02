@@ -127,5 +127,5 @@ This software is for **educational and research purposes only**. It is **not** a
 ---
 
 <div align="center">
-Made with ❤️ for Healthcare & AI
+Made by Tanmay Patil for Healthcare & AI
 </div>
