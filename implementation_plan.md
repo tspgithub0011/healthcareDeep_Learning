@@ -123,24 +123,6 @@ d:\healthcareDeep_Learning\main\
 └── README.md                        # Full project documentation
 ```
 
----
-
-## User Review Required
-
-> [!IMPORTANT]
-> **Dummy Models First**: Per your instruction, we will start with **dummy (random-weight) models** so the full pipeline is runnable immediately. Real trained models can be swapped in later by running the training scripts.
-
-> [!IMPORTANT]
-> **Datasets are NOT included** in the repo. The `datasets/README.md` will contain download links for each dataset (Kaggle, NIH, ISIC, etc.). You'll need to download them manually before training.
-
-> [!WARNING]
-> **GPU Required for Training**: Training 7 deep learning models (6 diseases + 1 image classifier) requires a CUDA-capable GPU. The web app itself (inference) can run on CPU.
-
-> [!IMPORTANT]
-> **Tailwind CSS**: You specified Tailwind CSS for the frontend. I will use **Tailwind CSS v3** with Vite. Please confirm if you want a different version.
-
----
-
 ## 🧠 Model Details
 
 | # | Disease | Image Type | Architecture | Dataset Source |
