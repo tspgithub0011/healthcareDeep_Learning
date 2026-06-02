@@ -252,43 +252,5 @@ Each model uses:
 
 ---
 
-## Open Questions
-
-> [!IMPORTANT]
-> **1. Model Weights Storage**: Trained `.pth` files can be 80-200 MB each. For deployment, should we:
-> - **(A)** Host them on Google Drive / HuggingFace and download at server startup?
-> - **(B)** Include them in the Docker image (larger image, but simpler)?
-> 
-> **Recommendation**: Option A (download at startup) to keep the repo and Docker image small.
-
-> [!IMPORTANT]
-> **2. Dummy Models vs Real Training**: Should I:
-> - **(A)** Build the full pipeline with dummy models first (so you can test the UI/API immediately), then provide training scripts separately?
-> - **(B)** Train one model first as a proof of concept, then build the rest?
->
-> **Recommendation**: Option A — get the full app working end-to-end first.
-
-> [!IMPORTANT]
-> **3. Image Type Classifier Approach**: For auto-detecting whether an uploaded image is an X-ray, MRI, or skin photo, should we use:
-> - **(A)** A trained CNN classifier (most accurate, but needs its own dataset)
-> - **(B)** A simpler heuristic + CNN hybrid (analyze color channels + basic classifier)
->
-> **Recommendation**: Option A — train a small classifier model.
-
----
-
-## Verification Plan
-
-### Automated Tests
-- Backend: `pytest` tests for `/api/predict` and `/api/health` endpoints
-- Frontend: Manual browser testing via the browser tool
-- Model training: Verify training scripts run on a small sample of data
-
-### Manual Verification
-1. Upload sample X-ray → verify correct routing to X-ray models
-2. Upload sample MRI → verify correct routing to Brain Tumor model
-3. Upload sample skin photo → verify correct routing to Skin Lesion model
-4. Verify Grad-CAM heatmap renders correctly
-5. Verify PDF report downloads
-6. Test responsive design on mobile viewport
+viewport
 7. Verify deployment on Render + Vercel
