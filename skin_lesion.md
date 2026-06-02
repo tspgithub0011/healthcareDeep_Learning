@@ -1,5 +1,8 @@
 # Skin Lesion Classification — Abbreviation Guide
 
+This contains the extra information on skin lession class.. like disease explanation and stuff
+If you are a medical student then read it... might be useful for you....
+
 This document explains all **7 skin lesion classes** used in our dataset and model. The dataset is based on the **HAM10000** (Human Against Machine with 10000 training images) — a large collection of dermoscopic images of common pigmented skin lesions.
 
 ---
