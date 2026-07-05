@@ -13,7 +13,7 @@ An intelligent, web-based triage system that automatically detects medical image
 </div>
 
 ---
-<a href="https://healthcare-deep-learning.vercel.app/" style="color:blue;">Link</a>
+<a href="https://healthcare-deep-learning.vercel.app/" style="color:red"><b>Link To Project</b></a>
 ## ✨ Features
 
 - 🧠 **Zero-Choice User Experience:** Simply upload an image. The system handles modality detection, routing, and inference automatically.
